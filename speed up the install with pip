@@ -1,0 +1,33 @@
+if you install something with the normal pip config , it is too slow
+so here is one solution to speed up the install
+
+	vim ~/.config/pip.conf 
+	
+	#this command aims to build a new file to set up pip tool
+	paste next text in the pip.conf
+		
+		[global]
+		#index-url = https://pypi.doubanio.com/simple
+		#do not care this url
+		index-url = http://e.pypi.python.org/simple
+		#you can change the  'e.' if you are not living in China
+		#trusted-host = pypi.doubanio.com
+		timeout = 6000
+		#set up the timeout == 6000 ,the default outtime is 15s
+		download-cace = ~/.cache/pip/
+		#set up the cache ,this can speed up the downloads speeds ,you do not have to download same package twice
+		[install]
+		use-mirrors = true
+		mirrors = https://e.pypi.python.org
+
+then you have to set up the enviroment of your machine
+		export PIP_CONFIG_FILE=$HOME/.config/pip.conf
+
+DONE!!!
+
+
+
+
+
+
+	
